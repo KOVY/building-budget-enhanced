@@ -1,0 +1,30 @@
+run = "npm run dev"
+language = "nodejs"
+entrypoint = "backend/src/server.js"
+hidden = [".config", "package-lock.json"]
+
+[packager]
+language = "nodejs"
+workingDirectory = "."
+
+[nix]
+channel = "stable-22_11"
+
+[env]
+NODE_ENV = "development"
+PATH = "/home/runner/$REPL_SLUG/node_modules/.bin"
+
+[hosting]
+route = "/"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+name = "Frontend"
+protocol = "http"
+
+[[ports]]
+localPort = 5000
+externalPort = 8080
+name = "Backend"
+protocol = "http"
