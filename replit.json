@@ -1,13 +1,18 @@
-{ pkgs }: {
-  deps = [
-    pkgs.nodejs-18_x
-    pkgs.nodePackages.typescript
-    pkgs.yarn
-    pkgs.replitPackages.jest
-  ];
-  env = {
-    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
-      pkgs.libuuid
-    ];
-  };
+{
+  "name": "building-budget-enhanced",
+  "version": "1.0.0",
+  "description": "Building budget application",
+  "scripts": {
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:all": "npm run install:frontend && npm run install:backend",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm start",
+    "dev": "npm run dev:backend & npm run dev:frontend",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KOVY/building-budget-enhanced.git"
+  }
 }
